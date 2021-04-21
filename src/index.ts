@@ -6,7 +6,7 @@ type TVersionJson = {
     version: string;
 }
 
-@customElement('version-checker')
+@customElement('lit-version-checker')
 export class VersionChecker extends LitElement{
     @property({type: String}) path: string = "/version.json";
     @property({type: String}) version: string = ""; 

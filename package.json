@@ -1,5 +1,5 @@
 {
-  "name": "version-checker",
+  "name": "lit-version-checker",
   "version": "1.0.0",
   "description": "Notify user about new version of app",
   "main": "dist/index.js",
