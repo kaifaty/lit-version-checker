@@ -10,6 +10,7 @@ type TVersionJson = {
 export class VersionChecker extends LitElement{
     @property({type: String}) path: string = "/version.json";
     @property({type: String}) version: string = ""; 
+    @property({type: Number}) period: number = CHECK_TIMEOUT; 
     @property({type: Object}) header: TemplateResult | null = html``;
     @property({type: Object}) 
     content: ((versionOld: string, versionNew: string) => 
@@ -20,7 +21,7 @@ export class VersionChecker extends LitElement{
         super();
         setInterval(()=> {
             this.checkVersion();
-        }, CHECK_TIMEOUT)
+        }, this.period)
     }
     riseError(versionOld: string, versionNew: string){
         this.dispatchEvent(new CustomEvent("showDialog", {
