@@ -1,7 +1,8 @@
-import { LitElement, customElement, property, html } from 'lit-element';
-import type { TemplateResult } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators';
+import type { TemplateResult } from 'lit';
 
-const CHECK_TIMEOUT = 5000;
+const CHECK_TIMEOUT = 15000;
 type TVersionJson = {
     version: string;
 }
@@ -35,7 +36,7 @@ export class VersionChecker extends LitElement{
         }))
     }    
     checkVersion(){
-        fetch(this.path + "?" + Date.now()).then(r => r.json()).then((r: TVersionJson) => {
+        fetch(this.path + "?t=" + Date.now()).then(r => r.json()).then((r: TVersionJson) => {
             if(r.version !== this.version && (this.additionCheck?.() || true)){
                 this.riseError(this.version, r.version);
             }
