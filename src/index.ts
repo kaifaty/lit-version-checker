@@ -3,12 +3,12 @@ type TVersionJson = {
     version: string;
 }
 
-abstract class VerstionChecker{
+export abstract class VerstionChecker{
     private _path: string = "/version.json";
     private _period: number = CHECK_TIMEOUT;
     private _version: string = '';
     private _checkingInterval = 0;
-    
+
     public setPath(value: string){
         this._path = value;
     }
