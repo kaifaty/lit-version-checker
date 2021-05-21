@@ -7,10 +7,18 @@ abstract class VerstionChecker{
     private _path: string = "/version.json";
     private _period: number = CHECK_TIMEOUT;
     private _version: string = '';
-    constructor(){        
-        setInterval(()=> {
+    private _checkingInterval = 0;
+    
+    public setPath(value: string){
+        this._path = value;
+    }
+    public startChecks(){
+        this._checkingInterval = setInterval(()=> {
             this._checkVersion();
         }, this._period);
+    }
+    public stopChecks(){
+        clearInterval(this._checkingInterval);
     }
     private _checkVersion(){
         fetch(this._path + "?t=" + Date.now()).then(r => r.json()).then((r: TVersionJson) => {
