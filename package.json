@@ -1,6 +1,6 @@
 {
   "name": "lit-version-checker",
-  "version": "1.0.1",
+  "version": "1.1.2",
   "description": "Notify user about new version of app",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -22,9 +22,7 @@
     "/dist/"
   ],
   "keywords": [
-    "version checker",
-    "lit-element",
-    "LitElement"
+    "version checker"
   ],
   "homepage": "https://github.com/kaifaty/version-checker#readme",
   "bugs": {
@@ -36,7 +34,5 @@
     "tslib": "^2.2.0",
     "typescript": "^4.2.3"
   },
-  "dependencies": {
-    "lit": "^2.0.0-rc.2"
-  }
+  "dependencies": {}
 }
