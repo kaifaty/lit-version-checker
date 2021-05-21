@@ -9,10 +9,14 @@ export abstract class VerstionChecker{
     private _version: string = '';
     private _checkingInterval = 0;
 
+    public setPeriod(value: number){
+        this._period = value;
+    }
     public setPath(value: string){
         this._path = value;
     }
-    public startChecks(){
+    public startChecks(version: string){
+        this._version = version;
         this._checkingInterval = setInterval(()=> {
             this._checkVersion();
         }, this._period);
